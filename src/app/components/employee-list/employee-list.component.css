@@ -1,0 +1,444 @@
+/* ========================================
+   EMPLOYEE LIST COMPONENT STYLES
+   MODERN DATA TABLE WITH PREMIUM STYLING
+   ======================================== */
+
+.list-container {
+  padding: var(--spacing-xl);
+  max-width: 1600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xl);
+}
+
+/* Page Header */
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--spacing-lg);
+  padding: 0;
+}
+
+.header-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.page-header h1 {
+  font-size: var(--font-size-page-title);
+  font-weight: var(--font-weight-semibold);
+  margin: 0;
+  color: var(--color-text-primary);
+}
+
+.subtitle {
+  font-size: var(--font-size-body);
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
+.btn-primary {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  white-space: nowrap;
+  text-transform: capitalize;
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-hover) 100%);
+  color: white;
+  padding: var(--spacing-sm) var(--spacing-lg) !important;
+  border-radius: var(--radius-md);
+  font-weight: var(--font-weight-semibold);
+  transition: all var(--transition-base);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-primary:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+/* Filter Card */
+.filter-card {
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-lg);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--color-border);
+  transition: all var(--transition-base);
+  background-color: var(--color-surface);
+}
+
+.filter-card:hover {
+  box-shadow: var(--shadow-md);
+}
+
+.filter-content {
+  display: flex;
+  align-items: flex-end;
+  gap: var(--spacing-md);
+}
+
+.filter-field {
+  flex: 1;
+  min-width: 250px;
+}
+
+.btn-clear {
+  margin-bottom: 0;
+  padding: 0 !important;
+  min-width: unset;
+  color: var(--color-primary);
+  transition: all var(--transition-base);
+}
+
+.btn-clear:hover:not(:disabled) {
+  color: var(--color-primary-hover);
+  background-color: var(--color-primary-light);
+}
+
+.btn-clear:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* Table Card */
+.table-card {
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+  transition: all var(--transition-base);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+}
+
+.table-card:hover {
+  box-shadow: var(--shadow-lg);
+}
+
+.table-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-lg);
+  border-bottom: 2px solid var(--color-divider);
+  background: linear-gradient(135deg, var(--color-primary-lighter) 0%, var(--color-surface) 100%);
+}
+
+.table-header h2 {
+  margin: 0;
+  font-size: var(--font-size-card-title);
+  color: var(--color-text-primary);
+  font-weight: var(--font-weight-semibold);
+}
+
+.record-count {
+  font-size: var(--font-size-label);
+  color: var(--color-text-secondary);
+  background-color: var(--color-divider);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--radius-md);
+  font-weight: var(--font-weight-semibold);
+}
+
+/* Table Wrapper */
+.table-wrapper {
+  overflow-x: auto;
+  max-height: none;
+  overflow-y: visible;
+}
+
+/* Employee Table */
+.employee-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.employee-table th {
+  background-color: var(--color-divider);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+  padding: var(--spacing-lg) var(--spacing-md);
+  text-align: left;
+  border-bottom: 2px solid var(--color-border);
+  white-space: nowrap;
+  font-size: var(--font-size-table);
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.employee-table td {
+  padding: var(--spacing-lg) var(--spacing-md);
+  border-bottom: 1px solid var(--color-divider);
+  color: var(--color-text-primary);
+  font-size: var(--font-size-table);
+}
+
+.employee-table tbody tr {
+  transition: background-color var(--transition-fast);
+}
+
+.employee-table tbody tr:hover {
+  background-color: var(--color-background);
+}
+
+/* Column Styles */
+.column-id {
+  width: 80px;
+  color: var(--color-text-secondary);
+  font-weight: var(--font-weight-semibold);
+}
+
+.column-name {
+  font-weight: var(--font-weight-semibold);
+}
+
+.employee-info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.employee-info strong {
+  color: var(--color-text-primary);
+  font-weight: var(--font-weight-semibold);
+}
+
+.column-role,
+.column-department {
+  width: 150px;
+}
+
+.column-salary {
+  width: 140px;
+  text-align: right;
+  font-weight: var(--font-weight-semibold);
+}
+
+.column-actions {
+  width: 120px;
+  text-align: center;
+}
+
+.action-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-sm);
+}
+
+.action-buttons button,
+.action-buttons a {
+  transition: all var(--transition-fast);
+}
+
+.action-buttons button:hover,
+.action-buttons a:hover {
+  transform: scale(1.1);
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+  .list-container {
+    padding: var(--spacing-lg);
+  }
+
+  .page-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .column-id {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .list-container {
+    padding: var(--spacing-md);
+  }
+
+  .filter-content {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .filter-field {
+    min-width: unset;
+  }
+
+  .table-wrapper {
+    overflow-x: scroll;
+  }
+
+  .employee-table {
+    font-size: 12px;
+  }
+}
+
+.employee-row:last-child td {
+  border-bottom: none;
+}
+
+/* Column Styles */
+.column-id {
+  width: 60px;
+}
+
+.column-name {
+  width: 180px;
+}
+
+.column-role {
+  width: 140px;
+}
+
+.column-department {
+  width: 140px;
+}
+
+.column-salary {
+  width: 130px;
+  text-align: right;
+}
+
+.column-actions {
+  width: 120px;
+  text-align: center;
+}
+
+.employee-info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.employee-info strong {
+  color: var(--color-text-primary);
+  font-weight: var(--font-weight-semibold);
+}
+
+/* Badge Styles */
+.badge {
+  display: inline-block;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-caption);
+  font-weight: var(--font-weight-semibold);
+  white-space: nowrap;
+}
+
+.badge-primary {
+  background-color: var(--color-primary-light);
+  color: var(--color-primary);
+}
+
+.badge-secondary {
+  background-color: var(--color-secondary-light);
+  color: var(--color-secondary);
+}
+
+/* Action Buttons */
+.action-buttons {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-xs);
+}
+
+.action-buttons mat-icon-button {
+  transition: all var(--transition-base);
+}
+
+.action-buttons mat-icon-button:hover {
+  transform: scale(1.1);
+}
+
+/* Empty State */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-xxl) var(--spacing-lg);
+  color: var(--color-text-secondary);
+  text-align: center;
+}
+
+.empty-state mat-icon {
+  font-size: 64px;
+  width: 64px;
+  height: 64px;
+  opacity: 0.5;
+  margin-bottom: var(--spacing-md);
+}
+
+.empty-state h3 {
+  font-size: var(--font-size-h3);
+  margin: var(--spacing-md) 0 var(--spacing-sm) 0;
+  color: var(--color-text-primary);
+}
+
+.empty-state p {
+  margin: 0;
+  color: var(--color-text-secondary);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .list-container {
+    padding: var(--spacing-md);
+    gap: var(--spacing-md);
+  }
+
+  .page-header {
+    flex-direction: column;
+    align-items: stretch;
+    padding-bottom: var(--spacing-md);
+  }
+
+  .page-header h1 {
+    font-size: var(--font-size-h3);
+  }
+
+  .btn-primary {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .filter-content {
+    flex-direction: column;
+    gap: var(--spacing-sm);
+  }
+
+  .filter-field {
+    width: 100%;
+    min-width: unset;
+  }
+
+  .btn-clear {
+    width: 100%;
+  }
+
+  .table-wrapper {
+    max-height: unset;
+    overflow-x: auto;
+  }
+
+  .column-id,
+  .column-role,
+  .column-department {
+    display: none;
+  }
+
+  .employee-table th,
+  .employee-table td {
+    padding: var(--spacing-sm);
+  }
+
+  .empty-state mat-icon {
+    font-size: 48px;
+    width: 48px;
+    height: 48px;
+  }
+}

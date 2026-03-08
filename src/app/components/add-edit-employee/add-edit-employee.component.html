@@ -1,0 +1,115 @@
+<div class="form-container">
+  <div class="form-header">
+    <h1 *ngIf="editing; else addTitle" class="form-title">Edit Employee</h1>
+    <ng-template #addTitle><h1 class="form-title">Add New Employee</h1></ng-template>
+    <p class="form-subtitle">
+      {{ editing ? 'Update employee information' : 'Create a new employee record' }}
+    </p>
+  </div>
+
+  <mat-card class="form-card">
+    <form [formGroup]="form" (ngSubmit)="submit()" class="employee-form">
+
+      <!-- Personal Information Section -->
+      <fieldset class="form-section">
+        <legend class="section-title">Personal Information</legend>
+        
+        <mat-form-field appearance="outline" class="form-field">
+          <mat-label>Full Name *</mat-label>
+          <input 
+            matInput 
+            formControlName="name"
+            placeholder="Enter employee name"
+            required
+            aria-label="Employee name" />
+          <mat-icon matPrefix>person</mat-icon>
+          <mat-error *ngIf="form.controls['name'].hasError('required')">
+            Name is required
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="form-field">
+          <mat-label>Email Address</mat-label>
+          <input 
+            matInput 
+            formControlName="email"
+            type="email"
+            placeholder="employee@company.com"
+            aria-label="Employee email" />
+          <mat-icon matPrefix>email</mat-icon>
+        </mat-form-field>
+      </fieldset>
+
+      <!-- Job Information Section -->
+      <fieldset class="form-section">
+        <legend class="section-title">Job Information</legend>
+
+        <mat-form-field appearance="outline" class="form-field">
+          <mat-label>Job Title / Role</mat-label>
+          <input 
+            matInput 
+            formControlName="role"
+            placeholder="e.g., Senior Developer"
+            aria-label="Employee role" />
+          <mat-icon matPrefix>work</mat-icon>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="form-field">
+          <mat-label>Department</mat-label>
+          <input 
+            matInput 
+            formControlName="department"
+            placeholder="e.g., Engineering"
+            aria-label="Employee department" />
+          <mat-icon matPrefix>domain</mat-icon>
+        </mat-form-field>
+      </fieldset>
+
+      <!-- Compensation Information Section -->
+      <fieldset class="form-section">
+        <legend class="section-title">Compensation & Dates</legend>
+
+        <mat-form-field appearance="outline" class="form-field">
+          <mat-label>Annual Salary</mat-label>
+          <input 
+            matInput 
+            type="number"
+            formControlName="salary"
+            placeholder="Enter salary amount"
+            aria-label="Employee salary" />
+          <mat-icon matPrefix>attach_money</mat-icon>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="form-field">
+          <mat-label>Joining Date</mat-label>
+          <input 
+            matInput 
+            type="date"
+            formControlName="joiningDate"
+            aria-label="Employee joining date" />
+          <mat-icon matPrefix>calendar_today</mat-icon>
+        </mat-form-field>
+      </fieldset>
+
+      <!-- Form Actions -->
+      <div class="form-actions">
+        <button 
+          mat-flat-button 
+          color="accent"
+          type="submit"
+          [disabled]="!form.valid"
+          class="btn-submit">
+          <mat-icon>{{ editing ? 'edit' : 'add' }}</mat-icon>
+          <span>{{ editing ? 'Update Employee' : 'Add Employee' }}</span>
+        </button>
+        <a 
+          mat-stroked-button
+          routerLink="/employees"
+          class="btn-cancel">
+          <mat-icon>close</mat-icon>
+          <span>Cancel</span>
+        </a>
+      </div>
+    </form>
+  </mat-card>
+</div>

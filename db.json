@@ -1,0 +1,49 @@
+{
+  "employees": [
+    {
+      "id": "1",
+      "name": "Alice Johnson",
+      "role": "Engineer",
+      "department": "Engineering",
+      "salary": 9500,
+      "email": "alice.johnson@example.com",
+      "joiningDate": "2020-03-15"
+    },
+    {
+      "id": "2",
+      "name": "Bob Smith",
+      "role": "Designer",
+      "department": "Design",
+      "salary": 72000,
+      "email": "bob.smith@example.com",
+      "joiningDate": "2019-07-01"
+    },
+    {
+      "id": "3",
+      "name": "Carol Lee",
+      "role": "Product Manager",
+      "department": "Product",
+      "salary": 105000,
+      "email": "carol.lee@example.com",
+      "joiningDate": "2018-11-20"
+    },
+    {
+      "id": "4",
+      "name": "Jewin",
+      "role": "Intern",
+      "department": "HR",
+      "salary": 100000,
+      "email": "jew@gmail.com",
+      "joiningDate": "2025-12-01"
+    },
+    {
+      "id": "5",
+      "name": "jewin",
+      "role": "developer",
+      "department": "IT",
+      "salary": 25000,
+      "email": "jewin@gmail.com",
+      "joiningDate": "2024-11-10"
+    }
+  ]
+}

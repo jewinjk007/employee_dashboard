@@ -1,0 +1,28 @@
+/* ========================================
+   APP LAYOUT STYLES
+   ======================================== */
+
+:host {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: var(--color-background);
+}
+
+app-navbar {
+  flex-shrink: 0;
+  z-index: 100;
+}
+
+.app-main {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background-color: var(--color-background);
+}
+
+/* Main Content Wrapper */
+main {
+  min-height: 100%;
+  background-color: var(--color-background);
+}

@@ -1,0 +1,129 @@
+<div class="detail-container" *ngIf="employee; else loading">
+  <!-- Page Header -->
+  <div class="page-header">
+    <div class="header-content">
+      <a mat-icon-button color="primary" routerLink="/employees" class="back-btn">
+        <mat-icon>arrow_back</mat-icon>
+      </a>
+      <div>
+        <h1 class="title">{{ employee.name }}</h1>
+        <p class="subtitle">Employee Details</p>
+      </div>
+    </div>
+    <div class="header-actions">
+      <a 
+        mat-flat-button 
+        color="accent"
+        [routerLink]="['/employees', employee.id, 'edit']"
+        class="btn-edit">
+        <mat-icon>edit</mat-icon>
+        <span>Edit</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Employee Detail Cards -->
+  <div class="details-grid">
+    <!-- Personal Information -->
+    <mat-card class="detail-card">
+      <mat-card-header>
+        <mat-card-title>Personal Information</mat-card-title>
+      </mat-card-header>
+      <mat-card-content class="card-content">
+        <div class="detail-row">
+          <div class="detail-label">
+            <mat-icon>person</mat-icon>
+            <span>Full Name</span>
+          </div>
+          <div class="detail-value">{{ employee.name }}</div>
+        </div>
+        <div class="detail-row">
+          <div class="detail-label">
+            <mat-icon>email</mat-icon>
+            <span>Email Address</span>
+          </div>
+          <div class="detail-value">
+            <a [href]="'mailto:' + employee.email">{{ employee.email }}</a>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+
+    <!-- Job Information -->
+    <mat-card class="detail-card">
+      <mat-card-header>
+        <mat-card-title>Job Information</mat-card-title>
+      </mat-card-header>
+      <mat-card-content class="card-content">
+        <div class="detail-row">
+          <div class="detail-label">
+            <mat-icon>work</mat-icon>
+            <span>Job Title</span>
+          </div>
+          <div class="detail-value">
+            <span class="badge badge-primary">{{ employee.role }}</span>
+          </div>
+        </div>
+        <div class="detail-row">
+          <div class="detail-label">
+            <mat-icon>domain</mat-icon>
+            <span>Department</span>
+          </div>
+          <div class="detail-value">
+            <span class="badge badge-secondary">{{ employee.department }}</span>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+
+    <!-- Compensation & Dates -->
+    <mat-card class="detail-card">
+      <mat-card-header>
+        <mat-card-title>Compensation & Dates</mat-card-title>
+      </mat-card-header>
+      <mat-card-content class="card-content">
+        <div class="detail-row">
+          <div class="detail-label">
+            <mat-icon>attach_money</mat-icon>
+            <span>Annual Salary</span>
+          </div>
+          <div class="detail-value salary-value">{{ employee.salary | currency }}</div>
+        </div>
+        <div class="detail-row">
+          <div class="detail-label">
+            <mat-icon>calendar_today</mat-icon>
+            <span>Joining Date</span>
+          </div>
+          <div class="detail-value">{{ employee.joiningDate | date:'longDate' }}</div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <!-- Action Buttons -->
+  <div class="page-actions">
+    <a 
+      mat-button
+      routerLink="/employees"
+      class="btn-back">
+      <mat-icon>arrow_back</mat-icon>
+      <span>Back to List</span>
+    </a>
+    <a 
+      mat-flat-button 
+      color="accent"
+      [routerLink]="['/employees', employee.id, 'edit']"
+      class="btn-edit-full">
+      <mat-icon>edit</mat-icon>
+      <span>Edit Employee</span>
+    </a>
+  </div>
+</div>
+
+<!-- Loading State -->
+<ng-template #loading>
+  <div class="loading-container">
+    <mat-spinner diameter="50"></mat-spinner>
+    <p>Loading employee details...</p>
+  </div>
+</ng-template>

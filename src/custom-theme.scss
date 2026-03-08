@@ -1,0 +1,213 @@
+// @use must come first before any other rules
+@use '@angular/material' as mat;
+
+// Include the common styles for Angular Material (only once)
+@include mat.core();
+
+// Define custom color palettes with improved accessibility
+// Using blue-based colors for better contrast and modern feel
+
+// Primary palette: Modern blue
+$employee-dashboard-primary: mat.define-palette((
+  50: #f0f9ff,
+  100: #e0f2fe,
+  200: #bae6fd,
+  300: #7dd3fc,
+  400: #38bdf8,
+  500: #2563eb,  // Main primary color
+  600: #1e40af,  // Darker shade
+  700: #1e3a8a,
+  800: #1e293b,
+  900: #0f172a,
+  A100: #dbeafe,
+  A200: #bae6fd,
+  A400: #38bdf8,
+  A700: #1e40af,
+  contrast: (
+    50: rgba(0, 0, 0, 0.87),
+    100: rgba(0, 0, 0, 0.87),
+    200: rgba(0, 0, 0, 0.87),
+    300: rgba(0, 0, 0, 0.87),
+    400: rgba(0, 0, 0, 0.87),
+    500: rgba(255, 255, 255, 1),
+    600: rgba(255, 255, 255, 1),
+    700: rgba(255, 255, 255, 1),
+    800: rgba(255, 255, 255, 1),
+    900: rgba(255, 255, 255, 1),
+    A100: rgba(0, 0, 0, 0.87),
+    A200: rgba(0, 0, 0, 0.87),
+    A400: rgba(0, 0, 0, 0.87),
+    A700: rgba(255, 255, 255, 1),
+  )
+));
+
+// Accent palette: Teal for secondary actions
+$employee-dashboard-accent: mat.define-palette((
+  50: #f0fdfa,
+  100: #ccfbf1,
+  200: #99f6e4,
+  300: #5eead4,
+  400: #2dd4bf,
+  500: #0891b2,  // Main accent color
+  600: #0e7490,
+  700: #155e75,
+  800: #164e63,
+  900: #0f3944,
+  A100: #ccfbf1,
+  A200: #99f6e4,
+  A400: #2dd4bf,
+  A700: #0891b2,
+  contrast: (
+    50: rgba(0, 0, 0, 0.87),
+    100: rgba(0, 0, 0, 0.87),
+    200: rgba(0, 0, 0, 0.87),
+    300: rgba(0, 0, 0, 0.87),
+    400: rgba(0, 0, 0, 0.87),
+    500: rgba(255, 255, 255, 1),
+    600: rgba(255, 255, 255, 1),
+    700: rgba(255, 255, 255, 1),
+    800: rgba(255, 255, 255, 1),
+    900: rgba(255, 255, 255, 1),
+    A100: rgba(0, 0, 0, 0.87),
+    A200: rgba(0, 0, 0, 0.87),
+    A400: rgba(0, 0, 0, 0.87),
+    A700: rgba(255, 255, 255, 1),
+  )
+));
+
+// Warn palette: Red for errors and destructive actions
+$employee-dashboard-warn: mat.define-palette((
+  50: #fef2f2,
+  100: #fee2e2,
+  200: #fecaca,
+  300: #fca5a5,
+  400: #f87171,
+  500: #dc2626,  // Main warn color
+  600: #b91c1c,
+  700: #991b1b,
+  800: #7f1d1d,
+  900: #651b14,
+  A100: #fee2e2,
+  A200: #fecaca,
+  A400: #f87171,
+  A700: #dc2626,
+  contrast: (
+    50: rgba(0, 0, 0, 0.87),
+    100: rgba(0, 0, 0, 0.87),
+    200: rgba(0, 0, 0, 0.87),
+    300: rgba(0, 0, 0, 0.87),
+    400: rgba(0, 0, 0, 0.87),
+    500: rgba(255, 255, 255, 1),
+    600: rgba(255, 255, 255, 1),
+    700: rgba(255, 255, 255, 1),
+    800: rgba(255, 255, 255, 1),
+    900: rgba(255, 255, 255, 1),
+    A100: rgba(0, 0, 0, 0.87),
+    A200: rgba(0, 0, 0, 0.87),
+    A400: rgba(0, 0, 0, 0.87),
+    A700: rgba(255, 255, 255, 1),
+  )
+));
+
+// Create the theme object with updated palettes
+$employee-dashboard-theme: mat.define-light-theme((
+  color: (
+    primary: $employee-dashboard-primary,
+    accent: $employee-dashboard-accent,
+    warn: $employee-dashboard-warn,
+  ),
+));
+
+// Include theme styles for all components
+@include mat.all-component-themes($employee-dashboard-theme);
+
+// ========================================
+// CUSTOM COMPONENT THEME OVERRIDES
+// ========================================
+
+html {
+  height: 100%;
+}
+
+body {
+  color-scheme: light;
+  background-color: var(--color-surface);
+  color: var(--color-text-primary);
+  margin: 0;
+  height: 100%;
+}
+
+// Improve Material Component Styling
+.mat-mdc-card {
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  transition: box-shadow var(--transition-base), transform var(--transition-base);
+  
+  &:hover {
+    box-shadow: var(--shadow-lg);
+  }
+}
+
+.mat-mdc-button {
+  border-radius: var(--radius-md);
+  text-transform: capitalize;
+  font-weight: var(--font-weight-semibold);
+  
+  &:focus {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+  }
+}
+
+.mat-mdc-flat-button {
+  border-radius: var(--radius-md);
+  font-weight: var(--font-weight-semibold);
+}
+
+.mat-mdc-raised-button {
+  border-radius: var(--radius-md);
+  font-weight: var(--font-weight-semibold);
+}
+
+.mat-mdc-form-field {
+  width: 100%;
+  
+  .mat-mdc-form-field-label {
+    font-weight: var(--font-weight-medium);
+  }
+}
+
+.mat-mdc-table {
+  width: 100%;
+  
+  .mat-mdc-header-cell {
+    font-weight: var(--font-weight-semibold);
+    background-color: var(--color-divider);
+    color: var(--color-text-primary);
+  }
+  
+  .mat-mdc-cell {
+    padding: var(--spacing-md);
+  }
+  
+  .mat-mdc-row:hover {
+    background-color: var(--color-divider);
+  }
+}
+
+.mat-mdc-toolbar {
+  box-shadow: var(--shadow-sm);
+  background-color: var(--color-surface-elevated);
+  color: var(--color-text-primary);
+}
+
+// Improve Material Icon styling
+.mat-mdc-icon {
+  vertical-align: middle;
+}
+
+// Accessible focus states
+:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
