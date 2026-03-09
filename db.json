@@ -5,7 +5,7 @@
       "name": "Alice Johnson",
       "role": "Engineer",
       "department": "Engineering",
-      "salary": 9500,
+      "salary": 95000,
       "email": "alice.johnson@example.com",
       "joiningDate": "2020-03-15"
     },
@@ -44,6 +44,15 @@
       "salary": 25000,
       "email": "jewin@gmail.com",
       "joiningDate": "2024-11-10"
+    },
+    {
+      "id": "f052",
+      "name": "Jaison",
+      "role": "SDE",
+      "department": "IT",
+      "salary": 1200000,
+      "email": "jaison@gmail.com",
+      "joiningDate": "2010-12-07"
     }
   ]
 }

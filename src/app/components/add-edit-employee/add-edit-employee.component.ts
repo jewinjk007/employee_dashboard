@@ -23,7 +23,7 @@ export class AddEditEmployeeComponent implements OnInit {
     name: ['', [Validators.required, Validators.minLength(3)]],
     role: ['', [Validators.required]],
     department: ['', [Validators.required]],
-    salary: [0, [Validators.required, Validators.min(0)]],
+    salary: ['', [Validators.required, Validators.min(0)]],
     email: ['', [Validators.required, Validators.email]],
     joiningDate: ['', [Validators.required]]
   });
@@ -42,15 +42,26 @@ export class AddEditEmployeeComponent implements OnInit {
   }
 
   submit() {
-    if (this.form.invalid) return this.form.markAllAsTouched();
+    if (this.form.invalid) {
+      this.form.markAllAsTouched();
+      return;
+    }
     let val = this.form.value as unknown as Partial<Employee>;
     if (this.editing && val.id != null) {
       const id = Number(val.id);
-      this.svc.update(id, val).subscribe({ next: () => this.router.navigate(['/employees']), error: (e) => console.error(e) });
+      const updatePayload = { ...val, salary: Number(val.salary) };
+      this.svc.update(id, updatePayload).subscribe({ 
+        next: () => this.router.navigate(['/employees']), 
+        error: (e) => console.error('Update error:', e) 
+      });
     } else {
       // Remove id field when adding new employee to allow server to auto-generate ID
       const { id, ...newEmployee } = val;
-      this.svc.add(newEmployee as Partial<Employee>).subscribe({ next: () => this.router.navigate(['/employees']), error: (e) => console.error(e) });
+      const addPayload = { ...newEmployee, salary: Number(newEmployee.salary) };
+      this.svc.add(addPayload as Partial<Employee>).subscribe({ 
+        next: () => this.router.navigate(['/employees']), 
+        error: (e) => console.error('Add error:', e) 
+      });
     }
   }
 }
